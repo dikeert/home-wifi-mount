@@ -1,0 +1,13 @@
+[Unit]
+Description=Time Capsule
+Requires=network-online.target remote-fs.target
+
+[Mount]
+What=//192.168.1.1/Data
+Where=/media/capsule
+Options=username=aner,password=remote,uid=1000,gid=1000,rw,sec=ntlm,user,vers=1.0
+Type=cifs
+ForceUnmount=true
+
+[Install]
+WantedBy=multi-user.target
